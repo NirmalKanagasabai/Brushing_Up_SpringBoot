@@ -49,4 +49,7 @@ public class Item {
 		return "Item [itemID=" + itemID + ", itemName=" + itemName + ", itemCompany=" + itemCompany + ", itemCategory="
 				+ itemCategory + ", itemPrice=" + itemPrice + "]";
 	}
+	
+	
+
 }
