@@ -2,9 +2,9 @@ package com.nimbus.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nimbus.demo.itemRepo.ItemRepo;
 import com.nimbus.demo.model.Item;
@@ -15,17 +15,17 @@ public class ItemController {
 	@Autowired
 	ItemRepo itemRepo;
 	
-//	@RequestMapping("/")
-//	public String home() {
-//		return "home.jsp";
-//	}
-//	
-//	@RequestMapping("/addItem")
-//	public String addItem(Item item) {
-//		
-//		itemRepo.save(item);
-//		return "home.jsp";
-//	}
+	@RequestMapping("/")
+	public String home() {
+		return "home.jsp";
+	}
+	
+	@RequestMapping("/addItem")
+	public String addItem(Item item) {
+		
+		itemRepo.save(item);
+		return "home.jsp";
+	}
 //	
 //	@RequestMapping("/getItem")
 //	public ModelAndView addItem(@RequestParam int itemID) {
@@ -42,4 +42,18 @@ public class ItemController {
 //		
 //		return mv;
 //	}
+	
+	@RequestMapping("/items") 
+	@ResponseBody
+	public String getItems() {
+		
+		return itemRepo.findAll().toString();
+	}
+	
+	@RequestMapping("/item/{itemID}") 
+	@ResponseBody
+	public String getItem(@PathVariable("itemID") int itemID) {
+		
+		return itemRepo.findById(itemID).toString();
+	}
 }
