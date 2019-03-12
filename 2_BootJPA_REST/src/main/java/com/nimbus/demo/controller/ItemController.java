@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nimbus.demo.itemRepo.ItemRepo;
@@ -29,6 +31,13 @@ public class ItemController {
 		
 		itemRepo.save(item);
 	}
+	
+	@PutMapping(path="/updateItem", consumes= {"application/json"})
+	public void updateItem(@RequestBody Item item) {
+		
+		itemRepo.save(item);
+	}
+	
 	
 	@DeleteMapping("/deleteItem/{itemID}")
 	public String deleteAlien(@PathVariable int itemID) {
