@@ -4,30 +4,29 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.nimbus.demo.itemRepo.ItemRepo;
 import com.nimbus.demo.model.Item;
 
-@Controller
+@RestController
 public class ItemController {
 	
 	@Autowired
 	ItemRepo itemRepo;
 	
-	@RequestMapping("/")
-	public String home() {
-		return "home.jsp";
-	}
+//	@RequestMapping("/")
+//	public String home() {
+//		return "home.jsp";
+//	}
 	
-	@RequestMapping("/addItem")
-	public String addItem(Item item) {
+	@PostMapping("/newItem")
+	public void addItem(Item item) {
 		
 		itemRepo.save(item);
-		return "home.jsp";
 	}
 //	
 //	@RequestMapping("/getItem")
@@ -46,17 +45,17 @@ public class ItemController {
 //		return mv;
 //	}
 	
-	@RequestMapping("/items") 
-	@ResponseBody
+	@GetMapping("/items") 
 	public List<Item> getItems() {
 		
 		return itemRepo.findAll();
 	}
 	
-	@RequestMapping("/item/{itemID}") 
-	@ResponseBody
+	@GetMapping("/item/{itemID}") 
 	public Optional<Item> getItem(@PathVariable("itemID") int itemID) {
 		
 		return itemRepo.findById(itemID);
 	}
+	
+	
 }
