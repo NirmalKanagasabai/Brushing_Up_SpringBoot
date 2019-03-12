@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> I love SpringBoot </h1>
+ ${name} loves SpringBoot
 </body>
 </html>

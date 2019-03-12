@@ -1,15 +1,24 @@
 package com.example.demo;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
 	
 	@RequestMapping("home")
-	//@ResponseBody
-	public String home() {
+	public String home(HttpServletRequest req) {
+		
+		HttpSession httpSession = req.getSession();
+		
+		String name = req.getParameter("name");
+		System.out.println("Hello " + name);
+		
+		httpSession.setAttribute("name", name);
+		
 		return "home";
 	}
 }
