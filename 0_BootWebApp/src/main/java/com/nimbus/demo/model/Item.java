@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.nimbus.demo.model;
 
 public class Item {
 	
