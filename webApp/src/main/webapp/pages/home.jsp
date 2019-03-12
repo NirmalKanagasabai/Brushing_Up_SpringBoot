@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
- ${name} loves SpringBoot
+ ID: ${id} 
+ <br />
+ Name: ${name} 
+ <br />
+ Company: ${company} 
+ <br />
+ Category: ${category}
+ <br />
+ Price: ${price} 
+ <br />
 </body>
 </html>
