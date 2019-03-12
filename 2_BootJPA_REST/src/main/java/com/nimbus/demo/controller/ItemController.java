@@ -1,5 +1,8 @@
 package com.nimbus.demo.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,15 +48,15 @@ public class ItemController {
 	
 	@RequestMapping("/items") 
 	@ResponseBody
-	public String getItems() {
+	public List<Item> getItems() {
 		
-		return itemRepo.findAll().toString();
+		return itemRepo.findAll();
 	}
 	
 	@RequestMapping("/item/{itemID}") 
 	@ResponseBody
-	public String getItem(@PathVariable("itemID") int itemID) {
+	public Optional<Item> getItem(@PathVariable("itemID") int itemID) {
 		
-		return itemRepo.findById(itemID).toString();
+		return itemRepo.findById(itemID);
 	}
 }
