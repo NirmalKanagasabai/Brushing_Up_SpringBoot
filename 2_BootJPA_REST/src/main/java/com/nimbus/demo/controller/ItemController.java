@@ -15,27 +15,31 @@ public class ItemController {
 	@Autowired
 	ItemRepo itemRepo;
 	
-	@RequestMapping("/")
-	public String home() {
-		return "home.jsp";
-	}
-	
-	@RequestMapping("/addItem")
-	public String addItem(Item item) {
-		
-		itemRepo.save(item);
-		return "home.jsp";
-	}
-	
-	@RequestMapping("/getItem")
-	public ModelAndView addItem(@RequestParam int itemID) {
-		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("showItem.jsp");
-		
-		Item item = itemRepo.findById(itemID).orElse(new Item());
-		mv.addObject(item);
-		
-		return mv;
-	}
+//	@RequestMapping("/")
+//	public String home() {
+//		return "home.jsp";
+//	}
+//	
+//	@RequestMapping("/addItem")
+//	public String addItem(Item item) {
+//		
+//		itemRepo.save(item);
+//		return "home.jsp";
+//	}
+//	
+//	@RequestMapping("/getItem")
+//	public ModelAndView addItem(@RequestParam int itemID) {
+//		
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("showItem.jsp");
+//		
+//		System.out.println(itemRepo.findByItemCompany("Samsung"));
+//		System.out.println(itemRepo.findByItemPriceGreaterThan(600));
+//		System.out.println(itemRepo.findByItemCategorySorted("Smartphones"));
+//		
+//		Item item = itemRepo.findById(itemID).orElse(new Item());
+//		mv.addObject(item);
+//		
+//		return mv;
+//	}
 }

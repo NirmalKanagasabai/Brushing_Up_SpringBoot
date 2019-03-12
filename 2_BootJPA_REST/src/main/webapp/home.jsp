@@ -8,14 +8,14 @@
 </head>
 <body>
 
-	<form action="addItem">
+<!-- 	<form action="addItem">
 		<input type="text" name = "itemID"><br>
 		<input type="text" name = "itemName"><br>
 		<input type="text" name = "itemCompany"><br>
 		<input type="text" name = "itemCategory"><br>
 		<input type="text" name = "itemPrice"><br>
 		<input type="submit"><br>
-	</form>
+	</form> -->
 	
 	<form action="getItem">
 		<input type="text" name = "itemID"><br>
