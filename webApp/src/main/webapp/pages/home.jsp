@@ -7,15 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
- ID: ${id} 
+ ID: ${item.itemID} 
  <br />
- Name: ${name} 
+ Name: ${item.itemName} 
  <br />
- Company: ${company} 
+ Company: ${item.itemCompany} 
  <br />
- Category: ${category}
+ Category: ${item.itemCategory}
  <br />
- Price: ${price} 
+ Price: ${item.itemPrice} 
  <br />
 </body>
 </html>
